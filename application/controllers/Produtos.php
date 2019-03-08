@@ -8,7 +8,7 @@ class Produtos extends CI_Controller {
         $produtos = $this->produtos_model->buscaTodos();
         $dados = array("produtos" => $produtos);
 
-        $this->load->helper(array("url", "form"));
+        $this->load->helper(array("url", "form", "currency_helper"));
         $this->load->view('produtos/index.php', $dados);
     }
 }
