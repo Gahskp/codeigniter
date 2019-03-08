@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Produtos extends CI_Controller {
     public function index()
     {
+        $this->output->enable_profiler(TRUE);
+
         $this->load->model("produtos_model");
         $produtos = $this->produtos_model->buscaTodos();
         $dados = array("produtos" => $produtos);
