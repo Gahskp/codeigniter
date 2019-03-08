@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Produtos</title>
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="<?=base_url("css/bootstrap.css")?>">
     </head>
     <body>
         <div class="container">
