@@ -7,19 +7,25 @@
 </head>
 <body>
     <div class="container">
-        <p class="alert-success"><?= $this->session->flashdata("success") ?></p>
-        <p class="alert-danger"><?= $this->session->flashdata("danger") ?></p>
+        <?php if ($this->session->flashdata("success")): ?>
+            <p class="alert alert-success"><?= $this->session->flashdata("success") ?></p>
+        <?php endif; ?>
+        <?php if ($this->session->flashdata("danger")): ?>
+            <p class="alert alert-danger"><?= $this->session->flashdata("danger") ?></p>
+        <?php endif; ?>
         <h1>Produtos</h1>
         <table class="table">
             <?php foreach ($produtos as $produto): ?>
                 <tr>
                     <td><?= $produto["nome"] ?></td>
+                    <td><?= $produto["descricao"] ?></td>
                     <td><?= numeroEmReais($produto["preco"])?></td>
                 </tr>
             <?php endforeach; ?>
         </table>
         <?php if ($this->session->userdata("usuario_logado")): ?>
             <?= anchor('login/logout', 'Logout', array("class" => "btn btn-primary")) ?>
+            <?= anchor('produtos/formulario', 'Novo Produto', array("class" => "btn btn-primary")) ?>
         <?php else: ?>
             <h1>Login</h1>
             <?php
