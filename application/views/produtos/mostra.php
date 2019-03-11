@@ -7,9 +7,9 @@
     </head>
     <body>
         <div class="container">
-            <h1><?= $produto["nome"] ?></h1>
-            Preço: R$<?= $produto["preco"] ?>
-            <?= auto_typography($produto["descricao"]) ?>
+            <h1><?= html_escape($produto["nome"]) ?></h1>
+            Preço: R$<?= html_escape($produto["preco"]) ?>
+            <?= auto_typography(html_escape($produto["descricao"])) ?>
         </div>
     </body>
 </html>
