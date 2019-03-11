@@ -13,7 +13,9 @@
         <?php if ($this->session->flashdata("danger")): ?>
             <p class="alert alert-danger"><?= $this->session->flashdata("danger") ?></p>
         <?php endif; ?>
+
         <h1>Produtos</h1>
+
         <table class="table">
             <?php foreach ($produtos as $produto): ?>
                 <tr>
