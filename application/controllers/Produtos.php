@@ -11,7 +11,7 @@ class Produtos extends CI_Controller {
         $dados = array("produtos" => $produtos);
 
         $this->load->helper("currency_helper");
-        $this->load->view('produtos/index.php', $dados);
+        $this->load->view('produtos/index', $dados);
     }
 
     public function formulario(){
@@ -31,5 +31,16 @@ class Produtos extends CI_Controller {
 
         $this->session->set_flashdata("success", "Produto adicionado com sucesso!");
         redirect("/");
+    }
+
+    public function mostra(){
+        $id = $this->input->get("id");
+        $this->load->model("produtos_model");
+        $produto = $this->produtos_model->busca($id);
+        $dados = array("produto" => $produto);
+
+        $this->load->helper("typography");
+        $this->load->view("produtos/mostra", $dados);
+
     }
 }
