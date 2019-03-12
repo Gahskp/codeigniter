@@ -10,4 +10,8 @@ class Usuarios_model extends CI_Model {
         $this->db->where("senha", $senha);
         return $this->db->get('usuarios')->row_array();
     }
+
+    public function busca($id){
+        return $this->db->get_where("usuarios", array("id" => $id))->row_array();
+    }
 }
