@@ -2,7 +2,7 @@
 
 class Produtos_model extends CI_Model {
     public function buscaTodos(){
-        return $this->db->get("produtos")->result_array();
+        return $this->db->get_where("produtos", array("vendido" => FALSE))->result_array();
     }
 
     public function salva($produto){
