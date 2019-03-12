@@ -11,7 +11,7 @@ class Produtos extends CI_Controller {
         $dados = array("produtos" => $produtos);
 
         $this->load->helper("currency_helper");
-        $this->load->view('produtos/index', $dados);
+        $this->load->template('produtos/index', $dados);
     }
 
     public function formulario(){
