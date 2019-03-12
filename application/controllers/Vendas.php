@@ -16,4 +16,15 @@ class Vendas extends CI_Controller {
         $this->session->set_flashdata("success", "Venda autorizada!");
         redirect("/");
     }
+
+    public function index(){
+        $this->load->helper("data_helper");
+
+        $usuario = $this->session->userdata("usuario_logado");
+        $this->load->model("produtos_model");
+        $produtosVendidos = $this->produtos_model->buscaVendidos($usuario["id"]);
+
+        $dados = array("produtosVendidos" => $produtosVendidos);
+        $this->load->view("vendas/index", $dados);
+    }
 }
